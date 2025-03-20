@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>N×N 乘法表</title>
+    <style>
+        table { border-collapse: collapse; width: 50%; margin: 20px auto; }
+        th, td { border: 1px solid black; padding: 10px; text-align: center; }
+    </style>
+</head>
+<body>
+    <h2 style="text-align: center;">N×N 乘法表</h2>
+    <label for="size">輸入 N 值：</label>
+    <input type="number" id="size" value="5" min="1">
+    <button onclick="generateTable()">產生乘法表</button>
+    <div id="table-container"></div>
+
+    <script>
+        function generateTable() {
+            let n = document.getElementById("size").value;
+            let tableHTML = "<table><tr><th>×</th>";
+            for (let i = 1; i <= n; i++) {
+                tableHTML += "<th>" + i + "</th>";
+            }
+            tableHTML += "</tr>";
+            for (let i = 1; i <= n; i++) {
+                tableHTML += "<tr><th>" + i + "</th>";
+                for (let j = 1; j <= n; j++) {
+                    tableHTML += "<td>" + (i * j) + "</td>";
+                }
+                tableHTML += "</tr>";
+            }
+            tableHTML += "</table>";
+            document.getElementById("table-container").innerHTML = tableHTML;
+        }
+        generateTable();
+    </script>
+</body>
+</html>
